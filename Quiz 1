@@ -1,0 +1,34 @@
+## Quiz 1
+#Read in the dataset
+hw1data <- read.csv("hw1_data.csv")
+
+#What are the dataset column names?
+colnames(hw1data)
+
+#Extract the first two rows of the dataset and print them.
+hw1data[1:2,]
+
+#How many rows are in the dataset?
+nrow(data)
+
+#Extract the last two rows of the dataset and print them.
+tail(hw1data)
+
+#What is the Ozone value in the 47th row?
+hw1data[47,1]
+
+#How many missing values are in the Ozone column?
+sum(!complete.cases(hw1data[,1]))
+
+#What is the mean value of the Ozone column (excluding missing values)?
+mean(hw1data[complete.cases(hw1data),1])
+
+#What is mean Solar.R value of subset with Ozone > 31 and Temp > 90?
+mean(subset(hw1data, Ozone>31 & Temp > 90)[,2])
+
+#What is the mean of Temp when Month is 6?
+mean(subset(hw1data, hw1data[,5]==6)[,4])
+
+What was the max ozone value in the month of May (i.e. Month is equal to 5)?
+> question20 <- subset(hw1data, Month==5 & !is.na(Ozone), select=Ozone)
+> apply(question20, 2, max)
